@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script type="text/javascript"
+	src="../commons/js/jquery/scripts/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="../commons/css/awsui.css">
+<script type="text/javascript" src="../commons/js/awsui.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>打印表单</title>
+<style>
+iframe {page-break-after:always;}
+</style>
+</head>
+<!-- 由于打印页面的宽度固定是2100mm 页面如果不预先设置宽度会导致打印时内容丢失 所以在body里面需要设置 -->
+<body style="width: 21cm; margin: 0 auto;">
+	<div id="printButton">
+		<input style="float: right;" type="button" class="button green"
+			value="打印" onclick="println()">
+	</div>
+	<span></span>
+	<#iframes>
+</body>
+<script type="text/javascript">
+	$(function() {
+		$("iframe").each(function() {
+			$(this).load(function() {
+				$(this).height($(this).contents()[0].body.scrollHeight);
+			});
+		});
+	});
+	function println() {
+		$("#printButton").css("display", "none");
+		window.print();
+	}
+</script>
+</html>

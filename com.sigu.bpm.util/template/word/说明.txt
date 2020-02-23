@@ -1,0 +1,4 @@
+1、将word文件写上标签，制作成模板文件 WeekPlanTemplate.docx
+2、将模板文件另存为[Word XML文档]格式的xml模板 WeekPlanTemplate.xml
+3、用文本编辑工具修改xml模板，将标签改为${XXX}格式，并且配置表格标签<#list>
+4、将修改完成的xml文档另存为ftl文件 WeekPlanTemplate.ftl

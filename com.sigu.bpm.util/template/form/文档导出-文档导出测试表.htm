@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>文档导出测试表</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="renderer" content="webkit">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		[#AWSImport]
+		[#AWSUIImport]
+		<link rel='stylesheet' id='schemeCss' href='../apps/_bpm.platform/css/colorschemes/scheme_1.css?v=1521618657737' name='schemeCss'/>
+	
+      <script type="text/javascript" src="../apps/com.sigu.bpm.util/js/util.js"></script>
+<link type='text/css' rel='stylesheet' id='themeCss' href='../apps/_bpm.platform/css/theme/theme.css' name='themeCss'/>
+</head>
+	<body>
+<form id="frmMain" method="post" name="frmMain">
+<div id="aws-form-container" class="aws-form-ux-container" border="0">
+<table id="aws-form-maintable" class="awsui-ux aws-form-ux-maintable" style="table-layout: auto;" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr id="aws-form-titlebg" class="aws-form-ux-titlebg">
+<td id="aws-form-title" class="aws-form-ux-header">文档导出测试表</td>
+</tr>
+<tr>
+<td>
+<table style="font-size: 18px; font-weight: bold;" align="right">
+<tbody>
+<tr>
+<td class="" style="width: 50px;">[#NF]</td>
+<td class="" style="width: 65px; padding-left: 10px;">年&nbsp;&nbsp;&nbsp;第&nbsp;&nbsp;</td>
+<td class="" style="width: 30px;">[#ZS]</td>
+<td class="" style="width: 50px; padding-left: 10px;">周</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr id="aws-form-formcontent" class="aws-form-ux-formcontent">
+<td>
+<table id="table_container" class="awsui-ux table-striped" style="padding: 0px;" width="100%" cellspacing="3" cellpadding="0"><colgroup><col class="awsui-ux-title" /><col style="width: 50.0%;" /><col class="awsui-ux-title" /><col style="width: 50.0%;" /></colgroup>
+<tbody>
+<tr id="c8cc0882_d870_0001_6fd3_51901600fa70">
+<td class="awsui-ux-title"><label id="APPLYNOLabel" class="aws-form-ux-label" for="APPLYNO">申请单号</label></td>
+<td class="aws-form-ux-content">[#APPLYNO]</td>
+<td class="awsui-ux-title"><label id="APPLYDATELabel" class="aws-form-ux-label" for="APPLYDATE">申请日期</label></td>
+<td class="aws-form-ux-content">[#APPLYDATE]</td>
+</tr>
+<tr>
+<td class="awsui-ux-title"><label id="APPLYUSERLabel" class="aws-form-ux-label" for="APPLYUSER">申请人员</label></td>
+<td class="aws-form-ux-content">[#APPLYUSER]</td>
+<td class="awsui-ux-title"><label id="APPLYDEPTLabel" class="aws-form-ux-label" for="APPLYDEPT">所属部门</label></td>
+<td class="aws-form-ux-content">[#APPLYDEPT]</td>
+</tr>
+<tr id="c875dcdc_5840_0001_19d6_19c026a0d600">
+<td class="awsui-ux-title"><label id="ZBLDLabel" class="aws-form-ux-label" for="ZBLD">值班领导</label></td>
+<td class="aws-form-ux-content">[#ZBLD]</td>
+<td class="awsui-ux-title">本周日期</td>
+<td class="aws-form-ux-content">
+<table>
+<tbody>
+<tr>
+<td class="">[#DATEFROM]</td>
+<td class="">&nbsp;&nbsp;至&nbsp;&nbsp;</td>
+<td class="">[#DATETO]</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td class="aws-form-ux-gridbg" colspan="4">
+<div class="aws-form-ux-grid" border="0">[#Grid1]</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="aws-form-bottom">
+<td class="aws-form-ux-actionsoft">[#Actionsoft]
+<div id="hiddenArea" border="0" style="display: none;">[#APPLYCOM][#APPLYUID][#APPLYDEPTID][#APPLYCOMID][#FLOWSTATUS]</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</form>
+<script id="formOnload">
+function formOnload(){
+	
+}
+//在Ajax子表工具栏添加自定义按钮，触发自定义的导出操作
+function BO_SG_UTIL_EXP_C_GridReadyEvent() {
+	var option = AWSGrid.getGrid('BO_SG_UTIL_EXP_C').awsGrid('option');
+    var button1 = {
+		id : "importExcelButton",
+		type : "button",
+		cls : "green",
+		label : "导入Excel",
+		group : "importExcelButton",
+		render : function() {
+			importExcel();
+		}
+	};
+	var button2 = {
+		id : "exportExcelButton",
+		type : "button",
+		cls : "green",
+		label : "导出Excel",
+		group : "exportExcelButton",
+		render : function() {
+			var data = {
+				sid : $("#sid").val(),
+				cmd : "com.sigu.bpm.util.exportExcel",
+				bindId : $("#processInstId").val()
+			};
+			exportFile(data);
+		}
+	};
+  	var button3 = {
+		id : "exportExcelButtonNoTemplate",
+		type : "button",
+		cls : "green",
+		label : "导出Excel(无模板)",
+		group : "exportExcelButtonNoTemplate",
+		render : function() {
+			var data = {
+				sid : $("#sid").val(),
+				cmd : "com.sigu.bpm.util.exportExcelNoTemplate",
+				bindId : $("#processInstId").val()
+			};
+			exportFile(data);
+		}
+	};
+	var toolbar = option.toolbar;
+	toolbar.items.push(button1);
+  	toolbar.items.push(button2);
+  	toolbar.items.push(button3);
+	AWSGrid.getGrid('BO_SG_UTIL_EXP_C').awsGrid('option', {
+		toolbar : option.toolbar
+	});
+}
+//导出word文件
+function exportWord() {
+	var data = {
+		sid : $("#sid").val(),
+		cmd : "com.sigu.bpm.util.exportWord",
+		bindId : $("#processInstId").val()
+	};
+	exportFile(data);
+}
+//导入excel文件
+function importExcel(){
+	if($("#dialog-normal").length==0){
+      	initDivDialog();
+      	var extParam = {bindId:$("#processInstId").val()};
+      	//参数依次为 应用ID、Plugins中定义的dc仓库目录名称、JSON格式的自定义业务参数、回调函数
+  		initFileUpload($("#appId").val(), "cd", JSON.stringify(extParam), refreshData);
+  	}
+  	$("#dialog-normal").dialog();
+}
+function refreshData(){
+  	//通过BO表的模型UUID和表名称刷新子表数据
+	AWSGrid.refreshData("bb9865d0-81e9-40ca-8fe5-1b2512fdcbd5", "BO_SG_UTIL_EXP_C", true);
+}
+</script>
+</body>
+</html>

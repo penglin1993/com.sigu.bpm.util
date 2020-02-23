@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<formModel>
+    <id>2f68ff54-4f5f-4da8-bf93-c61098c8527e</id>
+    <createUser>admin</createUser>
+    <createTime>2020-02-18 18:25:23</createTime>
+    <updateUser></updateUser>
+    <updateTime>2020-02-23 17:06:27</updateTime>
+    <signature></signature>
+    <managed>false</managed>
+    <title>文档导出测试表</title>
+    <deleted>false</deleted>
+    <categoryName>文档导出</categoryName>
+    <administrator>admin</administrator>
+    <defaultLanguage></defaultLanguage>
+    <url></url>
+    <urlHeight></urlHeight>
+    <formItems>
+        <formItem>
+            <id>4242da17-5b9d-4695-9d85-55c9009d5f8e</id>
+            <title>文档导出测试表</title>
+            <templateFile>{"tablet":"文档导出测试表.htm","pc":"文档导出-文档导出测试表.htm","mobile":"文档导出测试表_m.htm"}</templateFile>
+            <grid>false</grid>
+            <gridSetting></gridSetting>
+            <orderBy></orderBy>
+            <pageLimit>0</pageLimit>
+            <boModelId>91929cc5-02cc-4cff-bb12-e5d039525917</boModelId>
+            <dictionaryFileName></dictionaryFileName>
+            <hiddenHead>false</hiddenHead>
+            <theme>{"pc":"_bpm.platform"}</theme>
+            <itemDisplays/>
+            <scheme>{"pc":"scheme_aws.css"}</scheme>
+            <calcFormula></calcFormula>
+            <conditionControl></conditionControl>
+            <validate></validate>
+            <icon></icon>
+            <gridControl></gridControl>
+            <summaryControl></summaryControl>
+            <ruleControl></ruleControl>
+            <hiddenFields>APPLYCOM,APPLYUID,APPLYDEPTID,APPLYCOMID,FLOWSTATUS</hiddenFields>
+            <hiddenAddBtn>false</hiddenAddBtn>
+            <verticalLayout>false</verticalLayout>
+        </formItem>
+        <formItem>
+            <id>053951c1-5535-4212-aed8-c241b32fdf1e</id>
+            <title>文档导出测试子表</title>
+            <templateFile>{"tablet":"","pc":"","mobile":""}</templateFile>
+            <grid>true</grid>
+            <gridSetting>{"width":"100%","height":"","dlgWidth":"90%","dlgHeight":"90%","gridStyle":"thin","gridOpenMode":"dialog","gridSideWidth":"80%","gridSideMode":"false","displayTitle":"false","renderType":"grid","renderClass":"","fontColor":[],"colColor":[],"wrap":true,"columnResizable":true,"freezeCols":"0","sort":"","grouping":"","addSort":"bottom","mobileRenderClass":""}</gridSetting>
+            <orderBy>HDRQ ASC,KSSJ ASC</orderBy>
+            <pageLimit>0</pageLimit>
+            <boModelId>bb9865d0-81e9-40ca-8fe5-1b2512fdcbd5</boModelId>
+            <dictionaryFileName>[]</dictionaryFileName>
+            <hiddenHead>false</hiddenHead>
+            <theme>{"pc":"_bpm.platform"}</theme>
+            <itemDisplays>
+                <itemDisplay>
+                    <id>0ab7d3c3-8e8f-4a0c-9bb8-da275f70f498</id>
+                    <itemName>CJLDUID</itemName>
+                    <display>false</display>
+                    <useValue>true</useValue>
+                </itemDisplay>
+            </itemDisplays>
+            <scheme>{}</scheme>
+            <calcFormula></calcFormula>
+            <conditionControl>{}</conditionControl>
+            <validate></validate>
+            <icon></icon>
+            <gridControl>{"isCollapse":false,"title":"","unit":"","event":"","stat":"","field":"","isMultiColumn":false,"mobileGridRowDisplay":"","mobileRenderClass":""}</gridControl>
+            <summaryControl></summaryControl>
+            <ruleControl>{"displayRule":[],"requiredRule":[],"modifyRule":[],"calcRule":[]}</ruleControl>
+            <hiddenFields></hiddenFields>
+            <hiddenAddBtn>false</hiddenAddBtn>
+            <verticalLayout>false</verticalLayout>
+        </formItem>
+    </formItems>
+</formModel>

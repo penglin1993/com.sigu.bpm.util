@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>todoTaskPage.h5</title>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+<link rel="stylesheet" href="../commons/css/font/iconfont.css" />
+<link rel="stylesheet" href="../commons/css/awsui.css" />
+<script src="../commons/js/jquery/scripts/jquery.js"></script>
+<script src="../commons/js/awsui.js"></script>
+
+<script src="../commons/js/jquery/scripts/ui/awsui.pagination.js"></script>
+
+</head>
+<body>
+	<div style="padding: 8px; text-align: right;">
+		<a href="<#workflowCenterUrl>">更多</a>
+	</div>
+	<table class="awsui-table awsui-table-thin">
+		<thead>
+			<tr>
+				<th width="10px"></th>
+				<th>标题</th>
+				<th width="40px">来自</th>
+				<th width="70px">日期</th>
+			</tr>
+		</thead>
+		<tbody>
+			<#taskHtmls> <!-- <tr>
+        <td>苏轼</td>
+        <td>文学家</td>
+        <td>男</td>
+    </tr>
+    <tr>
+        <td>纳兰容若</td>
+        <td>词人</td>
+        <td>男</td>
+    </tr>
+    <tr>
+        <td>李清照</td>
+        <td>词人</td>
+        <td>女</td>
+    </tr>
+    <tr>
+        <td>朱元璋</td>
+        <td>皇帝</td>
+        <td>男</td>
+    </tr> -->
+		</tbody>
+	</table>
+	<div id="Pagination" style="padding-top: 8px;"></div>
+
+	<input type="hidden" id="sid" value="<#sid>" />
+	<input type="hidden" id="total" value="<#total>" />
+	<input type="hidden" id="pageLimit" value="<#pageLimit>" />
+	<input type="hidden" id="currentPage" value="<#currentPage>" />
+</body>
+<script>
+	//jQuery的页面加载后事件
+	//$(document).ready(function(){ })
+	$(function() {
+		var total = $("#total").val();
+		var pageLimit = $("#pageLimit").val();
+		var currentPage = $("#currentPage").val();
+		initPagination(total, pageLimit, currentPage);
+	});
+
+	function initPagination(total, pageLimit, currentPage) {
+		$("#Pagination").pagination(total, {
+			pageLimit : pageLimit,
+			showItem : 10,
+			currentPage : currentPage,
+			ellipseCount : 0,
+			linkTo : "#",
+			prevText : "上一页",
+			nextText : "下一页",
+			ellipseText : "...",
+			prevShowAlways : true,
+			nextShowAlways : true,
+			showIfSinglePage : true,
+			loadFirstPage : false,
+			showDisplay : true,
+			display : "显示 {0} 到 {1} 条， 共 {2} 条",
+			callback : function(pageNum, start, dom) {
+				clickPaginationButton(pageNum);
+			}
+		});
+	}
+
+	function clickPaginationButton(pageNum) {
+		var sid = $("#sid").val();
+		var pageLimit = $("#pageLimit").val();
+		var url = "./w?sid=" + sid + "&cmd=com.sigu.bpm.util.task.todoPage.h5";
+		url += "&pageLimit=" + pageLimit + "&currentPage=" + (pageNum - 1);
+		//在新窗口打开指定url
+		//window.open(url, "_blank");
+
+		//刷新当前页面为指定的url
+		window.location.href = url;
+
+		//在固定的弹框页面打开指定url
+		//window.open(url, "_blank", "scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes");
+	}
+</script>
+</html>

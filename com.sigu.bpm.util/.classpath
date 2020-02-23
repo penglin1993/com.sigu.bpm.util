@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/com.sigu.bpm.util.jar"/>
+	<classpathentry kind="lib" path="lib/jxls/commons-jexl-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jxls/jxls-2.5.0.jar"/>
+	<classpathentry kind="lib" path="lib/jxls/jxls-jexcel-1.0.8.jar"/>
+	<classpathentry kind="lib" path="lib/jxls/jxls-poi-1.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/jxls/jxls-reader-2.0.5.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/aws_libs_6.2.10"/>
+	<classpathentry kind="output" path="src"/>
+</classpath>
