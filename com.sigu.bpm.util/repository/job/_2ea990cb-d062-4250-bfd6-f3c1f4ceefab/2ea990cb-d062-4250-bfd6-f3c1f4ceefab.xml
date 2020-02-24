@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<awsScheduleModel>
+    <id>2ea990cb-d062-4250-bfd6-f3c1f4ceefab</id>
+    <createUser>admin</createUser>
+    <createTime>2020-02-20 10:37:38</createTime>
+    <updateUser></updateUser>
+    <updateTime>2020-02-20 10:38:55</updateTime>
+    <signature></signature>
+    <managed>false</managed>
+    <name>ASLP接口调用测试JOB</name>
+    <group>DEFAULT</group>
+    <desc></desc>
+    <disabled>false</disabled>
+    <system>false</system>
+    <classz>com.sigu.bpm.util.job.AslpCallTestJob</classz>
+    <createDate>2020-02-20T10:37:38+08:00</createDate>
+    <triggerRule>6::0</triggerRule>
+    <userParam></userParam>
+    <lastToken></lastToken>
+    <concurrent>false</concurrent>
+    <categoryName>未分类</categoryName>
+    <stateful>false</stateful>
+</awsScheduleModel>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<boModel>
+    <id>91929cc5-02cc-4cff-bb12-e5d039525917</id>
+    <createUser>admin</createUser>
+    <createTime>2020-02-18 18:22:15</createTime>
+    <updateUser></updateUser>
+    <updateTime>2020-02-18 18:22:15</updateTime>
+    <signature></signature>
+    <managed>false</managed>
+    <title>文档导出测试主表</title>
+    <name>BO_SG_UTIL_EXP_P</name>
+    <collection>false</collection>
+    <system>false</system>
+    <deleted>false</deleted>
+    <categoryName>文档导出</categoryName>
+    <administrator>admin</administrator>
+    <entityType>TABLE</entityType>
+    <viewType></viewType>
+    <viewSql></viewSql>
+    <securityLevel>0</securityLevel>
+    <target>_local</target>
+    <itemProps></itemProps>
+    <boItems/>
+    <boIndexs/>
+    <boRelations/>
+</boModel>

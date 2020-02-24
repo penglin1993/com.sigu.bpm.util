@@ -17,19 +17,19 @@
   <reloadable>true</reloadable>  
   <requires/>  
   <properties> 
-    <property action="edit" group="RTX腾讯通集成" name="RtxEnabled" title="是否启用RTX消息提醒" type="combox" isSystem="false" desc="true代表启用RTX消息推送，false表示不推送。" ref="true|false">true</property>  
-    <property action="edit" group="RTX腾讯通集成" name="RtxSendMsgUrl" title="RTX消息推送接口地址" type="textarea" isSystem="false" desc="" ref=""/>  
-    <property action="edit" group="SIM密信通集成" name="SimEnabled" title="是否启用SIM消息提醒" type="combox" isSystem="false" desc="true表示启用SIM消息推送，false表示不推送。" ref="true|false">true</property>  
-    <property action="edit" group="SIM密信通集成" name="SimSendMsgUrl" title="SIM消息推送接口地址" type="textarea" isSystem="false" desc="" ref="">http://WebAppIP:Port/simServer/SimMsgService?method=SendUsersMsg</property>  
-    <property action="edit" group="SIM密信通集成" name="AuthKeyUrl" title="SIM身份认证接口地址" type="textarea" isSystem="false" desc="" ref="">http://WebAppIP:Port/simServer/SimAuthService?method=checkAuth</property>  
-    <property action="edit" group="SIM密信通集成" name="account" title="SIM身份认证用户账户" type="input" isSystem="false" desc="" ref="">secadmin</property>  
-    <property action="edit" group="SIM密信通集成" name="pwd" title="SIM身份认证用户密码" type="input" isSystem="false" desc="" ref="">111111111</property> 
+    <property action="edit" group="RTX腾讯通集成" name="RtxEnabled" title="是否启用RTX消息提醒" type="combox" isSystem="false" desc="true代表启用RTX消息推送，false表示不推送。" ref="true|false">false</property>
+    <property action="edit" group="RTX腾讯通集成" name="RtxSendMsgUrl" title="RTX消息推送接口地址" type="textarea" isSystem="false" desc="" ref="">http://localhost:8012/sendnotify.cgi</property>
+    <property action="edit" group="SIM密信通集成" name="SimEnabled" title="是否启用SIM消息提醒" type="combox" isSystem="false" desc="true表示启用SIM消息推送，false表示不推送。" ref="true|false">false</property>
+    <property action="edit" group="SIM密信通集成" name="SimSendMsgUrl" title="SIM消息推送接口地址" type="textarea" isSystem="false" desc="" ref="">http://WebAppIP:Port/simServer/SimMsgService?method=SendUsersMsg</property>
+    <property action="edit" group="SIM密信通集成" name="AuthKeyUrl" title="SIM身份认证接口地址" type="textarea" isSystem="false" desc="" ref="">http://WebAppIP:Port/simServer/SimAuthService?method=checkAuth</property>
+    <property action="edit" group="SIM密信通集成" name="account" title="SIM身份认证用户账户" type="input" isSystem="false" desc="" ref="">secadmin</property>
+    <property action="edit" group="SIM密信通集成" name="pwd" title="SIM身份认证用户密码" type="input" isSystem="false" desc="" ref="">111111111</property>
   </properties>  
   <allowStartup>true</allowStartup>  
   <allowUpgradeByStore>true</allowUpgradeByStore>  
   <depend versions="6.2" env="">_bpm.portal</depend>  
   <modelAdministrator/>  
-  <installDate>2020-02-23 17:05:23</installDate>  
+  <installDate>2020-02-06 19:50:50</installDate>  
   <productId/>  
   <deployment> 
     <system id="obj_864df7f8bd724d658096640bd7dc5ce3" icon16="" icon64="" icon96="" notifier="" name="%u57FA%u7840%u5DE5%u5177%u5E94%u7528" target="mainFrame" url="/" deployUrlType="2" source="0"> 
@@ -45,6 +45,5 @@
         <function id="obj_3e6a286c7b094c1fb7c70b9d1ad64a7d" icon16="../apps/com.sigu.bpm.util/img/icon16.png" icon64="../apps/com.sigu.bpm.util/img/icon64.png" icon96="../apps/com.sigu.bpm.util/img/icon96.png" notifier="" name="%u6587%u6863%u5BFC%u51FA%u6D4B%u8BD5%u6D41%u7A0B" target="mainFrame" url="./w?sid=@sid&amp;cmd=CLIENT_BPM_WORKLIST_MAIN&amp;processGroupId=obj_c013ce0cde83456c9fa222dba4bc24cb&amp;boxTitle=" deployUrlType="2" source="0" orderIndex="1"/> 
       </directory> 
     </system> 
-  </deployment>  
-  <releaseDate>2020-02-20</releaseDate> 
+  </deployment> 
 </app>

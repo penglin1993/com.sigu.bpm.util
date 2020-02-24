@@ -36,7 +36,8 @@ public class ImportWeb {
 			String bindId = params.getString("bindId");
 
 			List<List<Object>> result = ExcelUtil.readExcel(file);
-			for (int i = 1; i < result.size(); i++) {// i等于1开始表示跳过第一行(一般第一行为标题行所以不处理)
+			// i等于1开始表示跳过第一行(一般第一行为标题行所以不处理)
+			for (int i = 1; i < result.size(); i++) {
 				List<Object> row = result.get(i);
 				BO bo = new BO();
 				bo.set("HDRQ", row.get(0));

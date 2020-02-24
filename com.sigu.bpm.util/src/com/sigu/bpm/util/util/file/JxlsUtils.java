@@ -47,7 +47,11 @@ public class JxlsUtils {
 		os.close();
 	}
 
-	// 获取jxls模版文件
+	/**
+	 * 获取jxls模版文件
+	 * @param path
+	 * @return
+	 */
 	public static File getTemplate(String path) {
 		File template = new File(path);
 		if (template.exists()) {

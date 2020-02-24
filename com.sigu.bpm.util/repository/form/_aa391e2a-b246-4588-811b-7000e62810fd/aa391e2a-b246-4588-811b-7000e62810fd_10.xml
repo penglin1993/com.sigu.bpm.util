@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<formModel>
+    <id>aa391e2a-b246-4588-811b-7000e62810fd</id>
+    <createUser>admin</createUser>
+    <createTime>2020-02-18 17:19:47</createTime>
+    <updateUser></updateUser>
+    <updateTime>2020-02-18 18:43:51</updateTime>
+    <signature></signature>
+    <managed>false</managed>
+    <title>CMD测试表单</title>
+    <deleted>false</deleted>
+    <categoryName>CMD请求</categoryName>
+    <administrator>admin</administrator>
+    <defaultLanguage></defaultLanguage>
+    <url></url>
+    <urlHeight></urlHeight>
+    <formItems>
+        <formItem>
+            <id>50c698a0-d6ca-4e36-962d-5781787c599c</id>
+            <title>CMD测试表单</title>
+            <templateFile>{"tablet":"CMD请求-CMD测试表单.htm","pc":"CMD请求-CMD测试表单.htm","mobile":"CMD请求-CMD测试表单_m.htm"}</templateFile>
+            <grid>false</grid>
+            <gridSetting></gridSetting>
+            <orderBy></orderBy>
+            <pageLimit>0</pageLimit>
+            <boModelId>92926b92-07de-4812-bceb-436c1c2edadd</boModelId>
+            <dictionaryFileName></dictionaryFileName>
+            <hiddenHead>false</hiddenHead>
+            <theme>{"pc":"_bpm.platform"}</theme>
+            <itemDisplays/>
+            <scheme>{"pc":"scheme_1.css"}</scheme>
+            <calcFormula></calcFormula>
+            <conditionControl></conditionControl>
+            <validate></validate>
+            <icon></icon>
+            <gridControl></gridControl>
+            <summaryControl></summaryControl>
+            <ruleControl></ruleControl>
+            <hiddenFields>,APPLYDEPTID,APPLYCOMID,APPLYUID,APPLYCOM,FLOWSTATUS</hiddenFields>
+            <hiddenAddBtn>false</hiddenAddBtn>
+            <verticalLayout>false</verticalLayout>
+        </formItem>
+    </formItems>
+</formModel>

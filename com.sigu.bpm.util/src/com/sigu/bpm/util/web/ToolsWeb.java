@@ -90,7 +90,7 @@ public class ToolsWeb {
 		String type = params.get("type");
 		if (UtilString.isNotEmpty(type)) {
 			// 消息是待办任务
-			if (type.trim().equals("todo")) {
+			if (("todo").equals(type.trim())) {
 				String taskId = params.get("taskId");
 				TaskInstance task = SDK.getTaskAPI().getInstanceById(taskId);
 				// 参数解析
@@ -114,7 +114,7 @@ public class ToolsWeb {
 	 *            待打印的单据任务实例ID
 	 * @return
 	 */
-	public String batchPrint(UserContext uc, String taskIds) {
+	public String batchPrint(UserContext uc, String taskIds, String formDefId) {
 		if (UtilString.isEmpty(taskIds)) {
 			return "待打印单据的任务实例ID不能为空！";
 		}
@@ -125,8 +125,9 @@ public class ToolsWeb {
 		for (int i = 0; i < ids.length; i++) {
 			String taskId = ids[i];
 			TaskInstance task = SDK.getTaskAPI().getTaskInstance(taskId);
-			String url = SDK.getFormAPI().getFormURL("", uc.getSessionId(), task.getProcessInstId(), task.getId(), UserTaskRuntimeConst.STATE_TYPE_SYSTEM_NOTIFY, "", "", "",false);
-			url = url.replace("displayToolbar=true", "displayToolbar=false");//FormAPI没隐藏工具栏需要手动设置一下参数隐藏
+			String url = SDK.getFormAPI().getFormURL("", uc.getSessionId(), task.getProcessInstId(), task.getId(), UserTaskRuntimeConst.STATE_TYPE_SYSTEM_NOTIFY, formDefId, "", "",false);
+			//FormAPI没隐藏工具栏需要手动设置一下参数隐藏
+			url = url.replace("displayToolbar=true", "displayToolbar=false");
 			iframes.append("<div><iframe id='iframe" + i + "' style='background-color=transparent; width:100%; height:500px;' frameborder='0' scrolling='no'");
 			iframes.append("src='" + url + "'></iframe></div>");
 		}

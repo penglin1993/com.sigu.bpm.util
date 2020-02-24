@@ -12,7 +12,7 @@ import com.actionsoft.bpms.bpmn.engine.model.run.delegate.TaskInstance;
 
 public class RtxUtil {
 
-	private static final String appId = "com.sigu.bpm.util.util";
+	private static String appId = "com.sigu.bpm.util.util";
 
 	/**
 	 * 普通消息提醒
@@ -78,7 +78,8 @@ public class RtxUtil {
 				msg = msg.replace("]", ")");
 			}
 			msg = "您有一个" + owner + "发来的任务[" + msg + "|" + url + "]，请及时办理！";
-			msg = URLEncoder.encode(msg, "GBK"); // RTX的接口参数使用GBK而不是UTF8进行编码
+			 // RTX的接口参数使用GBK而不是UTF8进行编码
+			msg = URLEncoder.encode(msg, "GBK");
 
 			// 接口调用
 			String rtxUrl = SDK.getAppAPI().getProperty(appId, "RtxSendMsgUrl");

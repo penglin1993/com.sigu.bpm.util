@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<boModel>
+    <id>2a6a7dac-84d0-46e1-b193-9c370a725dbf</id>
+    <createUser>admin</createUser>
+    <createTime>2020-02-06 20:07:17</createTime>
+    <updateUser></updateUser>
+    <updateTime>2020-02-06 20:07:17</updateTime>
+    <signature>tGOmxiTgjT/77UoYpSlq8Vc+hHPRoJWHdZexXc7zEpYuMNdhvSICeJnlc/RzRHGrEQZFgwMMFOy3NR+AMmffhgeoB7XWQjVpan2/040K6kZzXS4pKBrjkCQux03uXm2J</signature>
+    <managed>false</managed>
+    <title>用户信息视图</title>
+    <name>VIEW_SG_UTIL_USERINFO</name>
+    <collection>false</collection>
+    <system>false</system>
+    <deleted>false</deleted>
+    <categoryName>基础数据</categoryName>
+    <administrator>admin</administrator>
+    <entityType>VIEW</entityType>
+    <viewType>COMMON</viewType>
+    <viewSql>SELECT U.USERID, U.DEPARTMENTID, U.ROLEID, U.ISMANAGER, 0 SFJR FROM ORGUSER U
+UNION 
+SELECT M.USERID, M.DEPARTMENTID, M.ROLEID, M.ISMANAGER, 1 SFJR FROM ORGUSERMAP M</viewSql>
+    <securityLevel>0</securityLevel>
+    <target>_local</target>
+    <itemProps></itemProps>
+    <boItems/>
+    <boIndexs/>
+    <boRelations/>
+</boModel>

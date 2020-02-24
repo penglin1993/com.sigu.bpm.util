@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+/**
+*表格边框通用css文件,页面引用
+*<link rel="stylesheet" href="../apps/com.sigu.bpm.util/css/common.util.css"/>
+*/
+/*首先移除表格table_container的奇偶行显示样式table_striped*/
+#table_container{
+	border:2px solid black;
+	border-collapse:collapse;
+}
+.awsui-ux-title{
+	font-weight:bold;
+	border:1px solid black;
+}
+.aws-form-ux-content{
+	border:1px solid black;
+	
+}
+/*所有编号字段都统一使用如下行tr样式
+*<tr><td class="aws-form-ux-no"></td></tr>
+*/
+.aws-form-ux-no{
+text-align:right;
+padding :2px 5px 2px 5px;	
+		
+}
+/*
+*审核意见区域tr样式
+*/
+
+.audit-comment-tr{
+	height:100px;
+}

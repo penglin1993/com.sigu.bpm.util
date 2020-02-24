@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<formModel>
+    <id>e46b7a5b-b7ad-4c17-bf82-25e4eee848da</id>
+    <createUser>admin</createUser>
+    <createTime>2020-02-20 10:00:34</createTime>
+    <updateUser></updateUser>
+    <updateTime>2020-02-20 10:02:34</updateTime>
+    <signature></signature>
+    <managed>false</managed>
+    <title>批量打印测试表单（打印风格）</title>
+    <deleted>false</deleted>
+    <categoryName>批量打印</categoryName>
+    <administrator>admin</administrator>
+    <defaultLanguage></defaultLanguage>
+    <url>{"pc":"","mobile":""}</url>
+    <urlHeight>{"pc":"","mobile":""}</urlHeight>
+    <formItems>
+        <formItem>
+            <id>341b5ee7-2a99-4421-9a21-75587b873060</id>
+            <title>批量打印测试表单（打印风格）</title>
+            <templateFile>{"tablet":"批量打印测试表单（打印风格）.htm","pc":"批量打印-批量打印测试表单（打印风格）.htm","mobile":"批量打印-批量打印测试表单（打印风格）_m.htm"}</templateFile>
+            <grid>false</grid>
+            <gridSetting></gridSetting>
+            <orderBy></orderBy>
+            <pageLimit>0</pageLimit>
+            <boModelId>097ffac4-7088-4e82-8b19-f77aaefe8e66</boModelId>
+            <dictionaryFileName></dictionaryFileName>
+            <hiddenHead>false</hiddenHead>
+            <theme>{"pc":"_bpm.platform","mobile":"_bpm.platform"}</theme>
+            <itemDisplays/>
+            <scheme>{"pc":"scheme_aws.css","mobile":""}</scheme>
+            <calcFormula></calcFormula>
+            <conditionControl></conditionControl>
+            <validate></validate>
+            <icon></icon>
+            <gridControl></gridControl>
+            <summaryControl></summaryControl>
+            <ruleControl></ruleControl>
+            <hiddenFields>APPLYCOM,APPLYUID,APPLYDEPTID,APPLYCOMID,FLOWSTATUS</hiddenFields>
+            <hiddenAddBtn>false</hiddenAddBtn>
+            <verticalLayout>false</verticalLayout>
+        </formItem>
+    </formItems>
+</formModel>

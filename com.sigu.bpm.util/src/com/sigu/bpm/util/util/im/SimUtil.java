@@ -13,7 +13,7 @@ import java.util.Map;
 import com.actionsoft.bpms.bpmn.engine.model.run.delegate.TaskInstance;
 
 public class SimUtil {
-	private static final String appId = "com.sigu.bpm.util.util";
+	private static String appId = "com.sigu.bpm.util.util";
 
 	/**
 	 * 普通消息提醒
@@ -28,9 +28,12 @@ public class SimUtil {
 				return;
 			}
 			// 参数解析
-			String account = SDK.getAppAPI().getProperty(appId, "account");// 获取身份认证用户账号
-			String pwd = SDK.getAppAPI().getProperty(appId, "pwd");// 获取身份认证用户密码
-			String authKey = getKey(account, pwd);// 获取身份认证的key
+			// 获取身份认证用户账号
+			String account = SDK.getAppAPI().getProperty(appId, "account");
+			// 获取身份认证用户密码
+			String pwd = SDK.getAppAPI().getProperty(appId, "pwd");
+			// 获取身份认证的key
+			String authKey = getKey(account, pwd);
 			// 判断获取authKey是否失败
 			if (UtilString.isNotEmpty(authKey) && !authKey.equals("-1")) {
 				msg = URLEncoder.encode(msg, "UTF-8");
@@ -66,13 +69,18 @@ public class SimUtil {
 				return;
 			}
 			// 参数解析
-			String account = SDK.getAppAPI().getProperty(appId, "account");// 获取身份认证用户账号
-			String pwd = SDK.getAppAPI().getProperty(appId, "pwd");// 获取身份认证用户密码
-			String authKey = getKey(account, pwd);// 获取身份认证的key
+			// 获取身份认证用户账号
+			String account = SDK.getAppAPI().getProperty(appId, "account");
+			// 获取身份认证用户密码
+			String pwd = SDK.getAppAPI().getProperty(appId, "pwd");
+			// 获取身份认证的key
+			String authKey = getKey(account, pwd);
 			// 判断获取authKey是否失败
 			if (UtilString.isNotEmpty(authKey) && !authKey.equals("-1")) {
-				String sender = UserContext.fromUID(task.getOwner()).getUserName();// 发送者名字
-				String receiver = task.getTarget();// 接收者账号
+				// 发送者名字
+				String sender = UserContext.fromUID(task.getOwner()).getUserName();
+				// 接收者账号
+				String receiver = task.getTarget();
 
 				String bpmPortalHost = SDK.getPlatformAPI().getPortalUrl();
 				bpmPortalHost = bpmPortalHost.endsWith("/") ? bpmPortalHost + "r/w" : bpmPortalHost + "/r/w";
@@ -108,11 +116,11 @@ public class SimUtil {
 		// 获取身份认证接口地址
 		String authUrl = SDK.getAppAPI().getProperty(appId, "AuthKeyUrl");
 		// 请求参数
-		String passwordMD5 = getMD5String(password);
+		String passwordMd5 = getMd5String(password);
 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("account", authUser);
-		params.put("password", passwordMD5);
+		params.put("password", passwordMd5);
 		String authKey = HttpClientUtil.doPost(authUrl, params);
 
 		return authKey;
@@ -126,7 +134,7 @@ public class SimUtil {
 	 *            String
 	 * @return String
 	 */
-	public static String getMD5String(String str) {
+	public static String getMd5String(String str) {
 		if (str == null || str.length() == 0) {
 			return null;
 		}

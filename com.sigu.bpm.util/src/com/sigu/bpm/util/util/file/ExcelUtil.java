@@ -22,11 +22,11 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtil {
-	// 默认单元格内容为数字时格式
+	/**默认单元格内容为数字时格式*/
 	private static DecimalFormat df = new DecimalFormat("0");
-	// 默认单元格格式化日期字符串
+	/**默认单元格格式化日期字符串*/
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	// 格式化数字
+	/**格式化数字*/
 	private static DecimalFormat nf = new DecimalFormat("0.00");
 
 	public static List<List<Object>> readExcel(File file) {
@@ -42,7 +42,7 @@ public class ExcelUtil {
 		}
 	}
 
-	/*
+	/**
 	 * @return 将返回结果存储在ArrayList内，存储结构与二维数组类似 lists.get(0).get(0)表示获取Excel中0行0列单元格
 	 */
 	@SuppressWarnings("deprecation")
@@ -58,9 +58,10 @@ public class ExcelUtil {
 			for (int i = sheet.getFirstRowNum(), rowCount = 0; rowCount < sheet.getPhysicalNumberOfRows(); i++) {
 				row = sheet.getRow(i);
 				colList = new ArrayList<Object>();
+				// 当读取行为空时
 				if (row == null) {
-					// 当读取行为空时
-					if (i != sheet.getPhysicalNumberOfRows()) {// 判断是否是最后一行
+					// 判断是否是最后一行
+					if (i != sheet.getPhysicalNumberOfRows()) {
 						rowList.add(colList);
 					}
 					continue;
@@ -69,9 +70,10 @@ public class ExcelUtil {
 				}
 				for (int j = row.getFirstCellNum(); j <= row.getLastCellNum(); j++) {
 					cell = row.getCell(j);
+					// 当该单元格为空
 					if (cell == null || cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
-						// 当该单元格为空
-						if (j != row.getLastCellNum()) {// 判断是否是该行中最后一个单元格
+						// 判断是否是该行中最后一个单元格
+						if (j != row.getLastCellNum()) {
 							colList.add("");
 						}
 						continue;
@@ -130,9 +132,10 @@ public class ExcelUtil {
 			for (int i = sheet.getFirstRowNum(), rowCount = 0; rowCount < sheet.getPhysicalNumberOfRows(); i++) {
 				row = sheet.getRow(i);
 				colList = new ArrayList<Object>();
+				// 当读取行为空时
 				if (row == null) {
-					// 当读取行为空时
-					if (i != sheet.getPhysicalNumberOfRows()) {// 判断是否是最后一行
+					// 判断是否是最后一行
+					if (i != sheet.getPhysicalNumberOfRows()) {
 						rowList.add(colList);
 					}
 					continue;
@@ -141,9 +144,10 @@ public class ExcelUtil {
 				}
 				for (int j = row.getFirstCellNum(); j <= row.getLastCellNum(); j++) {
 					cell = row.getCell(j);
+					// 当该单元格为空
 					if (cell == null || cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
-						// 当该单元格为空
-						if (j != row.getLastCellNum()) {// 判断是否是该行中最后一个单元格
+						// 判断是否是该行中最后一个单元格
+						if (j != row.getLastCellNum()) {
 							colList.add("");
 						}
 						continue;
@@ -213,7 +217,8 @@ public class ExcelUtil {
 		}
 
 		byte[] content = os.toByteArray();
-		File file = new File(path);// Excel文件生成后存储的位置。
+		// Excel文件生成后存储的位置
+		File file = new File(path);
 		OutputStream fos = null;
 		try {
 			fos = new FileOutputStream(file);

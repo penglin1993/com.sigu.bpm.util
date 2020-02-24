@@ -50,9 +50,9 @@ public class ToolsController {
 	}
 	
 	@Mapping("com.sigu.bpm.util.batchPrint")
-	public String batchPrint(UserContext uc, String taskIds) {
+	public String batchPrint(UserContext uc, String taskIds, String formDefId) {
 		ToolsWeb web = new ToolsWeb();
-		String result = web.batchPrint(uc, taskIds);
+		String result = web.batchPrint(uc, taskIds, formDefId);
 		return result;
 	}
 	

@@ -4,7 +4,7 @@
     <createUser>admin</createUser>
     <createTime>2020-02-20 03:53:51</createTime>
     <updateUser>admin</updateUser>
-    <updateTime>2020-02-20 04:10:33</updateTime>
+    <updateTime>2020-02-20 10:07:08</updateTime>
     <signature>tGOmxiTgjT/77UoYpSlq8Vc+hHPRoJWHdZexXc7zEpYuMNdhvSICeJnlc/RzRHGroS+sAoEyztnYuWx2ZB/+PkU8ovcFRrSQia7m9cHcvmDvpbF17g04pXKmYVnbhc5o</signature>
     <managed>false</managed>
     <processGroupId>obj_8df6132704ab4c63baea3c2e5de822f9</processGroupId>
@@ -66,7 +66,7 @@
     <userextendbuttons>
         <userextendbutton id="obj_cce295d94aaf4d79b2768890e9480cac" icon="" label="批量打印" tip="">
             <eventcall>batchPrint()</eventcall>
-            <eventscript>function batchPrint()%7B%0A  %09var  sid %3D  %24(%22%23sid%22).val()%3B%0A%09var rowDatas %3D getGridSelectedRowDatas()%3B %0A  %09if(rowDatas%3D%3Dnull %7C%7C rowDatas.length%3D%3D0)%7B%0A    %09%24.simpleAlert('%u8BF7%u9009%u62E9%u6570%u636E%u540E%u518D%u70B9%u51FB%u6253%u5370%uFF01'%2C'warning')%3B%0A      %09return%3B%0A    %7D%0A    %0A  %09var datalist %3D new Array()%3B%0A  %09for(var i %3D 0%3B i %3C rowDatas.length%3B i%2B%2B)%7B%0A        datalist%5Bi%5D%3DgetGridFieldValue(rowDatas%5Bi%5D%2C'TASKID')%3B%0A   %09%7D%0A  %0A  %09window.open('.%2Fw%3Fsid%3D'%2Bsid%2B'%26taskIds%3D'%2Bdatalist%2B'%26cmd%3Dcom.sigu.bpm.util.batchPrint')%3B %0A%7D</eventscript>
+            <eventscript>function batchPrint()%7B%0A  %09var  sid %3D  %24(%22%23sid%22).val()%3B%0A%09var rowDatas %3D getGridSelectedRowDatas()%3B %0A  %09if(rowDatas%3D%3Dnull %7C%7C rowDatas.length%3D%3D0)%7B%0A    %09%24.simpleAlert('%u8BF7%u9009%u62E9%u6570%u636E%u540E%u518D%u70B9%u51FB%u6253%u5370%uFF01'%2C'warning')%3B%0A      %09return%3B%0A    %7D%0A    %0A  %09var datalist %3D new Array()%3B%0A  %09for(var i %3D 0%3B i %3C rowDatas.length%3B i%2B%2B)%7B%0A        datalist%5Bi%5D%3DgetGridFieldValue(rowDatas%5Bi%5D%2C'TASKID')%3B%0A   %09%7D%0A  %09%0A    %2F%2F%u6253%u5370%u8868%u5355%u7684%u6A21%u677FUUID%uFF0C%u5982%u679C%u7F6E%u7A7A%u7CFB%u7EDF%u4F1A%u53D6%u9ED8%u8BA4%u8868%u5355%0A  %09var formDefId %3D %22e46b7a5b-b7ad-4c17-bf82-25e4eee848da%22%3B%0A  %09window.open('.%2Fw%3Fsid%3D'%2Bsid%2B'%26taskIds%3D'%2Bdatalist%2B'%26cmd%3Dcom.sigu.bpm.util.batchPrint%26formDefId%3D'%2BformDefId)%3B %0A%7D</eventscript>
             <beforeeventcall></beforeeventcall>
             <beforeeventscript></beforeeventscript>
             <aftereventcall></aftereventcall>

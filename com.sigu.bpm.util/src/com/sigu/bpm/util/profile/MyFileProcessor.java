@@ -13,25 +13,29 @@ import com.sigu.bpm.util.web.ImportWeb;
  * 当前应用的自定义文件处理器
  */
 public class MyFileProcessor extends AbstFileProcessor {
-	// 声明当前应用的文档仓库目录名称
+	/**声明当前应用的文档仓库目录名称*/
 	public static String repositoryName = "cd";
-		
+	
+	@Override
 	public boolean uploadReady(Map<String, Object> param) {
 		DCContext context = (DCContext) param.get("DCContext");
 		System.out.println("准备上传文件--" + context.getPath() + context.getFileName());
 		return true;
 	}
 
+	@Override
 	public void uploadError(Map<String, Object> param) {
 		DCContext context = (DCContext) param.get("DCContext");
 		System.out.println("上传失败--" + context.getPath() + context.getFileName());
 	}
 
+	@Override
 	public void uploadBeforeEncrypt(Map<String, Object> param) {
 		DCContext context = (DCContext) param.get("DCContext");
 		System.out.println("已上传明文，准备加密前--" + context.getPath() + context.getFileName());
 	}
 
+	@Override
 	public void uploadSuccess(Map<String, Object> param) {
 		DCContext context = (DCContext) param.get("DCContext");
 		context.setDCMessage(DCMessage.OK, "");
@@ -52,12 +56,14 @@ public class MyFileProcessor extends AbstFileProcessor {
 		tmpFile.delete();
 	}
 
+	@Override
 	public boolean downloadValidate(Map<String, Object> param) {
 		DCContext context = (DCContext) param.get("DCContext");
 		System.out.println("下载校验--" + context.getPath() + context.getFileName());
 		return true;
 	}
 
+	@Override
 	public void downloadComplete(Map<String, Object> param) {
 		DCContext context = (DCContext) param.get("DCContext");
 		System.out.println("下载结束--" + context.getPath() + context.getFileName());

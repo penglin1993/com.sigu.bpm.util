@@ -10,11 +10,11 @@ import com.actionsoft.apps.resource.plugin.profile.AWSPluginProfile;
 import com.actionsoft.apps.resource.plugin.profile.AtFormulaPluginProfile;
 import com.actionsoft.apps.resource.plugin.profile.DCPluginProfile;
 import com.actionsoft.apps.resource.plugin.profile.ProcessPublicEventPluginProfile;
-import com.sigu.bpm.util.aslp.ExportExcelASLP;
-import com.sigu.bpm.util.aslp.ExportExcelNoTemplateASLP;
-import com.sigu.bpm.util.aslp.ExportWordASLP;
-import com.sigu.bpm.util.aslp.RtxNotificationASLP;
-import com.sigu.bpm.util.aslp.SimNotificationASLP;
+import com.sigu.bpm.util.aslp.ExportExcelAslp;
+import com.sigu.bpm.util.aslp.ExportExcelNoTemplateAslp;
+import com.sigu.bpm.util.aslp.ExportWordAslp;
+import com.sigu.bpm.util.aslp.RtxNotificationAslp;
+import com.sigu.bpm.util.aslp.SimNotificationAslp;
 import com.sigu.bpm.util.at.GetRootDeptId;
 import com.sigu.bpm.util.at.GetRootDeptName;
 import com.sigu.bpm.util.profile.MyFileProcessor;
@@ -40,14 +40,14 @@ public class Plugins implements PluginListener {
 		list.add(new DCPluginProfile(MyFileProcessor.repositoryName, MyFileProcessor.class.getName(), "自定义文件处理器", false));
 		
 		// 注册流程全局事件监听器
-        list.add(new ProcessPublicEventPluginProfile(MyProcesssListener.class.getName(), "自定义流程全局监听器"));
+       list.add(new ProcessPublicEventPluginProfile(MyProcesssListener.class.getName(), "自定义流程全局监听器"));
         
         //注册ASLP
-        list.add(new ASLPPluginProfile("exportWord", ExportWordASLP.class.getName(), "Word模板导出", null));
-        list.add(new ASLPPluginProfile("exportExcel", ExportExcelASLP.class.getName(), "Excel模板导出", null));
-        list.add(new ASLPPluginProfile("exportExcelNoTemplate", ExportExcelNoTemplateASLP.class.getName(), "Excel无模板直接导出", null));
-        list.add(new ASLPPluginProfile("simNotification", SimNotificationASLP.class.getName(), "腾讯通消息提醒推送接口", null));
-        list.add(new ASLPPluginProfile("rtxNotification", RtxNotificationASLP.class.getName(), "密信通消息提醒推送接口", null));
+        list.add(new ASLPPluginProfile("exportWord", ExportWordAslp.class.getName(), "Word模板导出", null));
+        list.add(new ASLPPluginProfile("exportExcel", ExportExcelAslp.class.getName(), "Excel模板导出", null));
+        list.add(new ASLPPluginProfile("exportExcelNoTemplate", ExportExcelNoTemplateAslp.class.getName(), "Excel无模板直接导出", null));
+        list.add(new ASLPPluginProfile("simNotification", SimNotificationAslp.class.getName(), "腾讯通消息提醒推送接口", null));
+        list.add(new ASLPPluginProfile("rtxNotification", RtxNotificationAslp.class.getName(), "密信通消息提醒推送接口", null));
 
 		return list;
 	}

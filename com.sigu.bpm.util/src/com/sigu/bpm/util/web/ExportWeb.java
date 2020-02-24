@@ -118,8 +118,8 @@ public class ExportWeb {
 		// 组织字符串标签及其数据
 		mapData.put("NF", data.getString("NF"));
 		mapData.put("ZS", data.getString("ZS"));
-		String dateFrom[] = data.getString("DATEFROM").split("-");
-		String dateTo[] = data.getString("DATETO").split("-");
+		String[] dateFrom = data.getString("DATEFROM").split("-");
+		String[] dateTo = data.getString("DATETO").split("-");
 		String datetime = dateFrom[0] + "年" + Integer.parseInt(dateFrom[1]) + "月" + Integer.parseInt(dateFrom[2]) + "日-" + Integer.parseInt(dateTo[1]) + "月" + Integer.parseInt(dateTo[2]) + "日";
 		mapData.put("RQ", datetime);
 		String zbld = data.getString("ZBLD");
@@ -152,7 +152,7 @@ public class ExportWeb {
 			}
 			boData.put("WEEK", week);
 			if (!"待定".equals(week)) {
-				String rq[] = bo.getString("HDRQ").split("-");
+				String[] rq = bo.getString("HDRQ").split("-");
 				String date = "(" + Integer.parseInt(rq[1]) + "月" + Integer.parseInt(rq[2]) + "日)";
 				boData.put("HDRQ", date);
 			}
