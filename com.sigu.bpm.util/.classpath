@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/aws6.3.1"/>
 	<classpathentry kind="lib" path="lib/com.sigu.bpm.util.jar"/>
 	<classpathentry kind="lib" path="lib/jxls/commons-jexl-2.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/jxls/jxls-2.5.0.jar"/>
