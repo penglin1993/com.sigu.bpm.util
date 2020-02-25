@@ -2,7 +2,7 @@ package com.sigu.bpm.util.util.im;
 
 import com.actionsoft.bpms.server.UserContext;
 import com.actionsoft.sdk.local.SDK;
-import com.sigu.bpm.util.util.HttpClientUtil;
+import com.sigu.bpm.util.util.HttpUtil;
 
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import com.actionsoft.bpms.bpmn.engine.model.run.delegate.TaskInstance;
 
 public class RtxUtil {
 
-	private static String appId = "com.sigu.bpm.util.util";
+	private static String appId = "com.sigu.bpm.util";
 
 	/**
 	 * 普通消息提醒
@@ -32,14 +32,15 @@ public class RtxUtil {
 			title = URLEncoder.encode(title, "GBK");
 			msg = URLEncoder.encode(msg, "GBK");
 
-			// 接口调用
+			// 接口地址
 			String rtxUrl = SDK.getAppAPI().getProperty(appId, "RtxSendMsgUrl");
-			Map<String, String> params = new HashMap<String, String>();
+			// 接口参数
+			Map<String, String> params = new HashMap<>();
 			params.put("receiver", receiver);
 			params.put("title", title);
 			params.put("msg", msg);
-
-			HttpClientUtil.doGetMap(rtxUrl, params);
+			// 接口调用
+			HttpUtil.sendGet(rtxUrl, params);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -78,17 +79,18 @@ public class RtxUtil {
 				msg = msg.replace("]", ")");
 			}
 			msg = "您有一个" + owner + "发来的任务[" + msg + "|" + url + "]，请及时办理！";
-			 // RTX的接口参数使用GBK而不是UTF8进行编码
+			// RTX的接口参数使用GBK而不是UTF8进行编码
 			msg = URLEncoder.encode(msg, "GBK");
 
-			// 接口调用
+			// 接口地址
 			String rtxUrl = SDK.getAppAPI().getProperty(appId, "RtxSendMsgUrl");
-			Map<String, String> params = new HashMap<String, String>();
+			// 接口参数
+			Map<String, String> params = new HashMap<>();
 			params.put("receiver", task.getTarget());
 			params.put("title", title);
 			params.put("msg", msg);
-
-			HttpClientUtil.doGetMap(rtxUrl, params);
+			// 接口调用
+			HttpUtil.sendGet(rtxUrl, params);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

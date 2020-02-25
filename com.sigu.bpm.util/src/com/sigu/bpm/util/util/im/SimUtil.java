@@ -3,7 +3,7 @@ package com.sigu.bpm.util.util.im;
 import com.actionsoft.bpms.server.UserContext;
 import com.actionsoft.bpms.util.UtilString;
 import com.actionsoft.sdk.local.SDK;
-import com.sigu.bpm.util.util.HttpClientUtil;
+import com.sigu.bpm.util.util.HttpUtil;
 
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -13,10 +13,11 @@ import java.util.Map;
 import com.actionsoft.bpms.bpmn.engine.model.run.delegate.TaskInstance;
 
 public class SimUtil {
-	private static String appId = "com.sigu.bpm.util.util";
+	private static String appId = "com.sigu.bpm.util";
 
 	/**
 	 * 普通消息提醒
+	 * 
 	 * @param receiver
 	 * @param msg
 	 */
@@ -38,23 +39,25 @@ public class SimUtil {
 			if (UtilString.isNotEmpty(authKey) && !authKey.equals("-1")) {
 				msg = URLEncoder.encode(msg, "UTF-8");
 
-				// 接口调用
+				// 接口地址
 				String simUrl = SDK.getAppAPI().getProperty(appId, "SimSendMsgUrl");
+				// 接口参数
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("authKey", authKey);
 				params.put("sender", account);
 				params.put("receiver", receiver);
 				params.put("msgContent", msg);
-
-				HttpClientUtil.doPost(simUrl, params);
+				// 接口调用
+				HttpUtil.sendPost(simUrl, params);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * 待办任务提醒
+	 * 
 	 * @param task
 	 */
 	public static void sendTaskNotification(TaskInstance task) {
@@ -97,15 +100,16 @@ public class SimUtil {
 				msg = "<a href=\"" + url + "\">[" + sender + "]发来了任务:[" + msg + "] ,请及时办理！</a>";
 				msg = URLEncoder.encode(msg, "UTF-8");
 
-				// 接口调用
+				// 接口地址
 				String simUrl = SDK.getAppAPI().getProperty(appId, "SimSendMsgUrl");
-				Map<String, String> params = new HashMap<String, String>();
+				// 接口参数
+				Map<String, String> params = new HashMap<>();
 				params.put("authKey", authKey);
-				params.put("sender", account);
+				params.put("sender", sender);
 				params.put("receiver", receiver);
 				params.put("msgContent", msg);
-
-				HttpClientUtil.doPost(simUrl, params);
+				// 接口调用
+				HttpUtil.sendPost(simUrl, params);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,7 +125,7 @@ public class SimUtil {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("account", authUser);
 		params.put("password", passwordMd5);
-		String authKey = HttpClientUtil.doPost(authUrl, params);
+		String authKey = HttpUtil.sendPost(authUrl, params);
 
 		return authKey;
 

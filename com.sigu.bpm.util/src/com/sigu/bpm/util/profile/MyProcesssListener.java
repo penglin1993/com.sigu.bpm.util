@@ -19,8 +19,8 @@ public class MyProcesssListener extends ProcessPubicListener {
 			RtxUtil.sendTaskNotification(taskInst);
 			SimUtil.sendTaskNotification(taskInst);
 		}
-		
-		//更新BO表中FLOWSTATUS字段的值
-		ProcessStatusChangeUtil.updateFlowStatus(eventName, taskInst, pec);
+
+		// 更新BO表中FLOWSTATUS字段的值
+		// ProcessStatusChangeUtil.updateFlowStatus(eventName, taskInst, pec);
 	}
 }

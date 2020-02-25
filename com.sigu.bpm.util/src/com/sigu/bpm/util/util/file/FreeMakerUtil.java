@@ -10,11 +10,11 @@ import java.util.Map;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
-public class WordUtil {
+public class FreeMakerUtil {
 	private static Configuration configuration = new Configuration();
 
 	/**
-	 * 通过FreeMkaer导出Word文档
+	 * 通过FreeMaker导出Word文档
 	 * 
 	 * @param dataMap
 	 * @param templatePath

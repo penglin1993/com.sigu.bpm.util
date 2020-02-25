@@ -12,6 +12,7 @@ public class SessionUtil {
 
 	/**
 	 * 获取指定用户的有效SESSIONID，如果不存在则创建
+	 * 
 	 * @param uid
 	 * @return
 	 */
@@ -26,7 +27,7 @@ public class SessionUtil {
 			}
 		}
 		if (UtilString.isNotEmpty(sid)) {
-			//刷新session有效期
+			// 刷新session有效期
 			SDK.getPortalAPI().refreshSession(sid);
 		} else {
 			// 创建session

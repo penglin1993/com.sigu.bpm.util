@@ -22,6 +22,9 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.CharArrayBuffer;
 import org.apache.http.util.EntityUtils;
 
+/**
+ * HttpClient的方式进行HTTP调用
+ */
 public class HttpClientUtil {
 
 	/**

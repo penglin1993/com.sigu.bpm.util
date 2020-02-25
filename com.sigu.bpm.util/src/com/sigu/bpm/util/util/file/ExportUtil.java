@@ -13,7 +13,7 @@ import com.actionsoft.sdk.local.SDK;
 import com.sigu.bpm.util.profile.MyFileProcessor;
 import com.sigu.bpm.util.util.file.ExcelUtil;
 import com.sigu.bpm.util.util.file.JxlsUtils;
-import com.sigu.bpm.util.util.file.WordUtil;
+import com.sigu.bpm.util.util.file.FreeMakerUtil;
 
 /**
  * WORD和EXCEL文档导出工具类
@@ -44,7 +44,7 @@ public class ExportUtil {
 			}
 
 			// 调用工具类导出文件
-			WordUtil.exportDoc(data, templatePath.toString(), templateName, dcContext.getFilePath());
+			FreeMakerUtil.exportDoc(data, templatePath.toString(), templateName, dcContext.getFilePath());
 
 			// 获取导出文件的下载地址
 			ro.setData(dcContext.getDownloadURL());
