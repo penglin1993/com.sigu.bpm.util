@@ -30,7 +30,7 @@
 <td class="awsui-ux-title" style="padding: 0px; white-space: normal;" colspan="4">
 <div class="bgBlock" border="0" style="width: 100%; background: #FFFFFF;">
 <div class="bgBlockContent" border="0">
-<p class=""><span style="font-size: 20px; color: #00994d;"><strong>说明</strong></span></p>
+<p class=""><span style="font-size: 20px; color: #00994d;"><strong>地址簿回调示例说明</strong></span></p>
 &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #ff0000; font-size: 16px;">当流程是其他用户代发起的时候，用户手动选择地址簿有时候无法映射所有的字段，就会导致表单默认信息和用户信息不符合。 因此需要通过编写地址簿选择后JS事件，发起CMD请求去后台获取用户信息，然后再返回前台把信息解析后赋值到表单字段上。</span></div>
 </div>
 </td>
@@ -59,6 +59,12 @@
 <td class="awsui-ux-title"><label id="DZYXLabel" class="aws-form-ux-label" for="DZYX">电子邮箱</label></td>
 <td class="aws-form-ux-content">[#DZYX]</td>
 </tr>
+<tr id="c8d0292f_6b40_0001_beae_81e01400be60">
+<td class="awsui-ux-title">[#TJAN]</td>
+<td class="aws-form-ux-content" style="color: red;">测试调用cmd请求的时候，弹出遮罩层和提示信息，当请求执行完毕后再取消遮罩层和提示信息。防止用户误操作！</td>
+<td class="awsui-ux-title">[#PZAN]</td>
+<td class="aws-form-ux-content" style="color: red;">自定义confirm确认框样式，并弹出遮罩的示例。</td>
+</tr>
 </tbody>
 </table>
 </td>
@@ -73,37 +79,80 @@
 </div>
 </form>
 <script id="formOnload">
-function formOnload(){
+function formOnload() {}
+/**
+ * 地址簿选中事件
+ *
+ * @param {String} boItemName 字段名
+ * @param {String} val 地址簿的当前字段选择的值
+ * @param {Object} jsonVal 地址簿回填多个字段时的一个json结构
+ */
+function onAddressSelectedEvent(boItemName, val, jsonVal) {
+    if (boItemName == "APPLYUSER") {
+        //获取用户信息并且回填到表单指定字段 第二个参数是自定义的function，回填逻辑在该function中自行处理
+        //调用getUserInfo方法前，需要在表单引用公共JS文件util.js
+        getUserInfo(val, fillBackUserInfo);
+    }
+}
+function fillBackUserInfo(user) {
+    console.log(user);
+    //通过user.xxx的方式获取user中的信息
+    if (user) {
+        ui("APPLYUSER", user.userName);
+        ui("APPLYDEPT", user.deptName);
+        ui("APPLYCOM", user.rootDeptName);
+        ui("APPLYUID", user.uid);
+        ui("APPLYDEPTID", user.deptId);
+        ui("APPLYCOMID", user.rootDeptId);
+        ui("YHJS", user.roleName);
+        ui("YHBH", user.userNo);
+        ui("SJHM", user.mobile);
+        ui("DZYX", user.email);
+    }
 }
 /**
-  * 地址簿选中事件
-  * 
-  * @param {String} boItemName 字段名
-  * @param {String} val 地址簿的当前字段选择的值
-  * @param {Object} jsonVal 地址簿回填多个字段时的一个json结构
-  */
-function onAddressSelectedEvent(boItemName, val, jsonVal) {
-  if(boItemName=="APPLYUSER"){
-    //获取用户信息并且回填到表单指定字段 第二个参数是自定义的function，回填逻辑在该function中自行处理
-    //调用getUserInfo方法前，需要在表单引用公共JS文件util.js
-  	getUserInfo(val, fillBackUserInfo);
-  }
+ * 调用cmd请求的时候，弹出遮罩层和提示信息，当请求执行完毕后再取消遮罩层和提示信息。防止用户误操作！
+ */
+function callAjaxWithMask(flag) {
+	//在ajax请求发起前，弹出遮罩和提示信息(60000表示该遮罩和提示最多会存在60秒)
+	setTimeout(function () {
+		$.simpleAlert("接口调用中,请等待...", "info", 60000, {mode: true});
+	}, 100);
+	 
+    awsui.ajax.request({
+        url: "./jd",
+        method: "POST",
+        data: {
+            sid: $("#sid").val(),
+            cmd: "com.sigu.bpm.util.sample.maskForm"
+        },
+        ok: function (r) {
+            //请求执行完毕后取消遮罩和提示信息
+            $.mask("close");
+			
+            //$.simpleAlert('提示信息内容','info',2000);//2000是表示2000毫秒后弹框自动消失
+            //console.log(r);
+        },
+        err: function (r) {
+            //请求执行完毕后取消遮罩和提示信息
+            $.mask("close");
+			
+            //$.simpleAlert('错误信息内容','error');
+            //$.simpleAlert('警告信息内容','warning');
+        }
+    });
 }
-function fillBackUserInfo(user){
-  	console.log(user);
-  	//通过user.xxx的方式获取user中的信息
-    if(user){
-      ui("APPLYUSER", user.userName);
-      ui("APPLYDEPT", user.deptName);
-      ui("APPLYCOM", user.rootDeptName);
-      ui("APPLYUID", user.uid);
-      ui("APPLYDEPTID", user.deptId);
-      ui("APPLYCOMID", user.rootDeptId);
-      ui("YHJS", user.roleName);
-      ui("YHBH", user.userNo);
-      ui("SJHM", user.mobile);
-      ui("DZYX", user.email);
-    }
+function createpzData() {
+    var content = "确定要生成凭证吗？";
+    var options = {
+        title: "<div style='color:red;text-align:center;'>" + content + "</div>",
+        content: "",
+        onConfirm: function () {
+            callAjaxWithMask();
+        },
+        onClose: function () {}
+    };
+    $.confirm(options);
 }
 </script>
 </body>

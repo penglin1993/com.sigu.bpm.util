@@ -4,7 +4,7 @@
     <createUser>admin</createUser>
     <createTime>2020-02-18 16:43:19</createTime>
     <updateUser></updateUser>
-    <updateTime>2020-02-18 17:40:16</updateTime>
+    <updateTime>2020-02-29 14:55:39</updateTime>
     <signature></signature>
     <managed>false</managed>
     <title>CMD测试表</title>
@@ -34,7 +34,7 @@
             <componentSetting>{}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
-            <modify>true</modify>
+            <modify>false</modify>
             <componentExtendCode></componentExtendCode>
             <persistenceType>ENTITY</persistenceType>
             <validateType></validateType>
@@ -60,7 +60,7 @@
             <componentSetting>{}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
-            <modify>true</modify>
+            <modify>false</modify>
             <componentExtendCode></componentExtendCode>
             <persistenceType>ENTITY</persistenceType>
             <validateType></validateType>
@@ -76,14 +76,14 @@
         <boItem>
             <id>54ae6908-793e-438d-a897-7d2fae9deaf1</id>
             <name>APPLYUSER</name>
-            <title>申请人姓名</title>
+            <title>申请人员</title>
             <columnType>TEXT</columnType>
             <length>128</length>
             <nullable>true</nullable>
             <defaultValue>@userName</defaultValue>
             <columnWidth>100</columnWidth>
-            <componentId>AWSUI.Text</componentId>
-            <componentSetting>{}</componentSetting>
+            <componentId>AWSUI.Address</componentId>
+            <componentSetting>{"placeholder":"","addressType":"user","isLiveSearch":true,"isAdvMode":false,"addressSetting":{"delimiter":" ","choiceType":"single"},"deptSourceField":"","deptTargetField":""}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
             <modify>true</modify>
@@ -102,7 +102,7 @@
         <boItem>
             <id>67629bbb-898a-455b-aa43-72a5e02a074a</id>
             <name>APPLYDEPT</name>
-            <title>申请人部门</title>
+            <title>所属部门</title>
             <columnType>TEXT</columnType>
             <length>128</length>
             <nullable>true</nullable>
@@ -112,7 +112,7 @@
             <componentSetting>{}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
-            <modify>true</modify>
+            <modify>false</modify>
             <componentExtendCode></componentExtendCode>
             <persistenceType>ENTITY</persistenceType>
             <validateType></validateType>
@@ -128,7 +128,7 @@
         <boItem>
             <id>e1241127-c080-406c-88f4-f275988ae2e8</id>
             <name>APPLYCOM</name>
-            <title>申请人单位</title>
+            <title>所属单位</title>
             <columnType>TEXT</columnType>
             <length>128</length>
             <nullable>true</nullable>
@@ -138,7 +138,7 @@
             <componentSetting>{}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
-            <modify>true</modify>
+            <modify>false</modify>
             <componentExtendCode></componentExtendCode>
             <persistenceType>ENTITY</persistenceType>
             <validateType></validateType>
@@ -164,7 +164,7 @@
             <componentSetting>{}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
-            <modify>true</modify>
+            <modify>false</modify>
             <componentExtendCode></componentExtendCode>
             <persistenceType>ENTITY</persistenceType>
             <validateType></validateType>
@@ -180,7 +180,7 @@
         <boItem>
             <id>8487a692-7eaa-4d63-89cc-80542e572d7f</id>
             <name>APPLYDEPTID</name>
-            <title>申请人部门ID</title>
+            <title>所属部门ID</title>
             <columnType>TEXT</columnType>
             <length>128</length>
             <nullable>true</nullable>
@@ -190,7 +190,7 @@
             <componentSetting>{}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
-            <modify>true</modify>
+            <modify>false</modify>
             <componentExtendCode></componentExtendCode>
             <persistenceType>ENTITY</persistenceType>
             <validateType></validateType>
@@ -206,7 +206,7 @@
         <boItem>
             <id>44d4d1f6-6d1b-4f9a-ac3e-7056b0a2f202</id>
             <name>APPLYCOMID</name>
-            <title>申请人单位ID</title>
+            <title>所属单位ID</title>
             <columnType>TEXT</columnType>
             <length>128</length>
             <nullable>true</nullable>
@@ -216,7 +216,7 @@
             <componentSetting>{}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
-            <modify>true</modify>
+            <modify>false</modify>
             <componentExtendCode></componentExtendCode>
             <persistenceType>ENTITY</persistenceType>
             <validateType></validateType>
@@ -242,7 +242,7 @@
             <componentSetting>{}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
-            <modify>true</modify>
+            <modify>false</modify>
             <componentExtendCode></componentExtendCode>
             <persistenceType>ENTITY</persistenceType>
             <validateType></validateType>
@@ -354,6 +354,32 @@
             <validateTip></validateTip>
             <validateErr>0</validateErr>
             <tooltip></tooltip>
+            <copy>false</copy>
+            <displayRule></displayRule>
+            <calcFormula></calcFormula>
+            <propsVal>{}</propsVal>
+        </boItem>
+        <boItem>
+            <id>60994725-e95c-4ea4-8c83-3f4297523081</id>
+            <name>TJAN</name>
+            <title>提交按钮</title>
+            <columnType>TEXT</columnType>
+            <length>128</length>
+            <nullable>true</nullable>
+            <defaultValue></defaultValue>
+            <columnWidth>100</columnWidth>
+            <componentId>AWSUI.Button</componentId>
+            <componentSetting>{"buttonValue":"callAjaxWithMask()","buttonName":"提交","JavaScript":true,"URL":false,"readonlyEfficient":false}</componentSetting>
+            <display>true</display>
+            <deleted>false</deleted>
+            <modify>true</modify>
+            <componentExtendCode></componentExtendCode>
+            <persistenceType>ENTITY</persistenceType>
+            <validateType></validateType>
+            <validateRule></validateRule>
+            <validateTip></validateTip>
+            <validateErr>0</validateErr>
+            <tooltip>调用cmd请求的时候，弹出遮罩层和提示信息，当请求执行完毕后再取消遮罩层和提示信息。</tooltip>
             <copy>false</copy>
             <displayRule></displayRule>
             <calcFormula></calcFormula>

@@ -4,7 +4,7 @@
     <createUser>admin</createUser>
     <createTime>2020-02-18 16:43:19</createTime>
     <updateUser></updateUser>
-    <updateTime>2020-02-18 18:29:36</updateTime>
+    <updateTime>2020-03-02 14:16:28</updateTime>
     <signature></signature>
     <managed>false</managed>
     <title>CMD测试表</title>
@@ -83,7 +83,7 @@
             <defaultValue>@userName</defaultValue>
             <columnWidth>100</columnWidth>
             <componentId>AWSUI.Address</componentId>
-            <componentSetting>{"placeholder":"","addressType":"user","isLiveSearch":true,"isAdvMode":true,"companyList":"","addressSetting":{"rootDetpId":"","isDisplayMap":true,"hideSubDeptAsCompany":false,"layerFrom":"","layerTo":"","range":"department|team","delimiter":" ","choiceType":"single","itemDisplayType":"all","leafType":"user","filterClass":""},"sourceField":"UID","targetField":"APPLYUID"}</componentSetting>
+            <componentSetting>{"placeholder":"","addressType":"user","isLiveSearch":true,"isAdvMode":false,"addressSetting":{"delimiter":" ","choiceType":"single"},"deptSourceField":"","deptTargetField":""}</componentSetting>
             <display>true</display>
             <deleted>false</deleted>
             <modify>true</modify>
@@ -354,6 +354,58 @@
             <validateTip></validateTip>
             <validateErr>0</validateErr>
             <tooltip></tooltip>
+            <copy>false</copy>
+            <displayRule></displayRule>
+            <calcFormula></calcFormula>
+            <propsVal>{}</propsVal>
+        </boItem>
+        <boItem>
+            <id>60994725-e95c-4ea4-8c83-3f4297523081</id>
+            <name>TJAN</name>
+            <title>提交按钮</title>
+            <columnType>TEXT</columnType>
+            <length>128</length>
+            <nullable>true</nullable>
+            <defaultValue></defaultValue>
+            <columnWidth>100</columnWidth>
+            <componentId>AWSUI.Button</componentId>
+            <componentSetting>{"buttonValue":"callAjaxWithMask()","buttonName":"提交","JavaScript":true,"URL":false,"readonlyEfficient":false}</componentSetting>
+            <display>true</display>
+            <deleted>false</deleted>
+            <modify>true</modify>
+            <componentExtendCode></componentExtendCode>
+            <persistenceType>ENTITY</persistenceType>
+            <validateType></validateType>
+            <validateRule></validateRule>
+            <validateTip></validateTip>
+            <validateErr>0</validateErr>
+            <tooltip>调用cmd请求的时候，弹出遮罩层和提示信息，当请求执行完毕后再取消遮罩层和提示信息。</tooltip>
+            <copy>false</copy>
+            <displayRule></displayRule>
+            <calcFormula></calcFormula>
+            <propsVal>{}</propsVal>
+        </boItem>
+        <boItem>
+            <id>c89d490f-db43-4f65-acbb-693f5d273c11</id>
+            <name>PZAN</name>
+            <title>凭证按钮</title>
+            <columnType>TEXT</columnType>
+            <length>128</length>
+            <nullable>true</nullable>
+            <defaultValue></defaultValue>
+            <columnWidth>100</columnWidth>
+            <componentId>AWSUI.Button</componentId>
+            <componentSetting>{"buttonValue":"createpzData()","buttonName":"生成凭证","JavaScript":true,"URL":false,"readonlyEfficient":false}</componentSetting>
+            <display>true</display>
+            <deleted>false</deleted>
+            <modify>true</modify>
+            <componentExtendCode></componentExtendCode>
+            <persistenceType>ENTITY</persistenceType>
+            <validateType></validateType>
+            <validateRule></validateRule>
+            <validateTip></validateTip>
+            <validateErr>0</validateErr>
+            <tooltip>ajax请求时弹出遮罩的另一种示例</tooltip>
             <copy>false</copy>
             <displayRule></displayRule>
             <calcFormula></calcFormula>
